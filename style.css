@@ -1,0 +1,117 @@
+/* Import Google Font 'Montserrat' */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap");
+
+/* Common variables */
+:root {
+  /* colors */
+  --primary: #2d46b9;
+  --primary-light: rgba(45, 70, 185, 0.8);
+  --light: #ffffff;
+  --dark: #222222;
+  --grey: #f1efef;
+  --grey-2: #dfdfdf;
+  --grey-dark: #b4b4b3;
+
+  /* box shadow */
+  --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--primary);
+}
+
+.container {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 15px;
+  width: 1100px;
+  background-color: var(--light);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.container .icon {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 150px;
+}
+
+.icon.icon-left {
+  display: none;
+  left: 0;
+  padding-left: 1rem;
+  background: linear-gradient(to right, var(--light) 55%, transparent);
+}
+
+.icon.icon-right {
+  right: 0;
+  padding-right: 1rem;
+  justify-content: flex-end;
+  background: linear-gradient(to left, var(--light) 55%, transparent);
+}
+
+.icon i {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease;
+}
+
+.icon i:hover {
+  background-color: var(--grey-2);
+}
+
+.container .tabs {
+  display: flex;
+  gap: 20px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.tabs.drag {
+  scroll-behavior: auto;
+  cursor: grab;
+}
+
+.tabs .tab {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  color: var(--dark);
+  white-space: nowrap;
+  border: 1px solid var(--grey-dark);
+  background-color: var(--grey);
+  cursor: pointer;
+}
+
+.tabs.drag .tab {
+  pointer-events: none;
+  user-select: none;
+}
+
+.tab.active {
+  color: var(--light);
+  border: 1px solid var(--primary);
+  background-color: var(--primary);
+}
